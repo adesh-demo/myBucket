@@ -33,7 +33,7 @@
 						<applicationName>Sandbox-demo-api-lifecycle</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>Micro</workerType>
-						<businessGroup>master\accenture</businessGroup>
+						<businessGroup>accenture</businessGroup>
 						<properties>
 							<key>value</key>
 						</properties>
