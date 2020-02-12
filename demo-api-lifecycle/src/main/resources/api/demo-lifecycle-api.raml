@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: DEMO LIFECYCLE API
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/656f7f59-40dd-422d-9134-2678a0c4c137/ # baseUri: baseUri.com
+mediaType:
+  - application/json
+version: v1
+protocols:
+  - HTTP
+  - HTTPS
+traits:
+  client-id-required:
+    headers:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+/apiStatus:
+  description: HealthCheck url
+  get:
+    is: [client-id-required]
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {"status": "Service is Running" }
+/details:
+  description: To fetch flight details
+  get:
+    description: Retrieve flight details based on the search parameters
+    is: [client-id-required]
+    responses:
+      200:
+        body:
+          application/json:
+              schema: #!include Schema/claimsSchema.json
+              example: !include Example/Example.json
+      400:
+        body:
+          application/json:
+          
+      404:
+        body:
+          application/json:
